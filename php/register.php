@@ -6,9 +6,9 @@ header('Content-Type: application/json');
 
 $fname = trim($_POST['fname']);
 $lname = trim($_POST['lname']);
-$email = trim($_POST['registerEmail']);
-$password = $_POST['registerPassword'];
-$confirm = $_POST['confirmPassword'];
+$email = trim($_POST['email']);
+$password = $_POST['password'];
+$confirm = $_POST['confirm'];
 $gender = $_POST['gender'];
 
 if ($password !== $confirm) {
