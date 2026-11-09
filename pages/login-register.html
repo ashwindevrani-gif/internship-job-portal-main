@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobConnect - Login/Register</title>
+
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link rel="icon" type="image/png" href="../assets/imgs/JobConnect.png" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  </head>
+
+  <body class="show-login">
+    <div class="logoContainer">
+      <img src="../assets/imgs/JobConnect.png" alt="Logo" />
+      <h1>JobConnect</h1>
+
+      <button onclick="themeToggle()" class="themeToggle">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-sun-icon lucide-sun"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" />
+          <path d="M12 20v2" />
+          <path d="m4.93 4.93 1.41 1.41" />
+          <path d="m17.66 17.66 1.41 1.41" />
+          <path d="M2 12h2" />
+          <path d="M20 12h2" />
+          <path d="m6.34 17.66-1.41 1.41" />
+          <path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="rightCont">
+      <div class="innerCont">
+        <h1>Find Your Dream Job</h1>
+        <p>
+          Join JobConnect to explore thousands of internships and job
+          opportunities tailored for you.
+        </p>
+        <div class="svg-container">
+          <img src="../assets/svg/Business.svg" alt="Business Illustration" />
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div id="loginBox" class="authBox active">
+        <h1>Welcome!</h1>
+
+        <form action="../php/login.php" id="loginForm" method="POST">
+          <div class="inp">
+            <input
+              class="holder"
+              type="email"
+              name="logInEmail"
+              id="logInEmail"
+              required
+            />
+            <label for="email">Email</label>
+          </div>
+
+          <div class="inp">
+            <input
+              class="holder"
+              type="password"
+              name="logInPassword"
+              id="logInPassword"
+              required
+            />
+            <label for="logInPassword">Password</label>
+            <div class="eyeIconLogin eyeIcon" id="togglePasswordLogin">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-eye-icon lucide-eye"
+              >
+                <path
+                  d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+          </div>
+
+          <input type="submit" value="Login" class="submit" />
+
+          <h2 id="errorMsgLogin"></h2>
+        </form>
+
+        <h2 id="forgetPassword">
+          <a href="forget_password.html">Forgot Password?</a>
+        </h2>
+        <h2 id="changePage">
+          Don't have an account?
+          <a href="#" id="goRegister">Register</a>
+        </h2>
+      </div>
+
+      <div id="registerBox" class="authBox">
+        <h1>Join Us!</h1>
+
+        <!-- USER REGISTER FORM -->
+        <form action="../php/register.php" id="registerForm" method="POST">
+          <div class="reg">
+            <input
+              type="text"
+              name="fname"
+              id="fname"
+              required
+              class="holder"
+            />
+            <label class="reg-label" for="fname">First Name</label>
+          </div>
+
+          <div class="reg">
+            <input
+              type="text"
+              name="lname"
+              id="lname"
+              required
+              class="holder"
+            />
+            <label class="reg-label" for="lname">Last Name</label>
+          </div>
+
+          <div class="reg">
+            <input
+              type="email"
+              id="registerEmail"
+              name="registerEmail"
+              required
+              class="holder"
+            />
+            <label class="reg-label" for="registerEmail">Email</label>
+          </div>
+
+          <div class="reg">
+            <input
+              type="password"
+              id="registerPassword"
+              name="registerPassword"
+              required
+              class="holder"
+            />
+            <label class="reg-label" for="registerPassword">Password</label>
+            <div class="eyeIconRegister eyeIcon" id="togglePasswordRegister">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-eye-icon lucide-eye"
+              >
+                <path
+                  d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="reg">
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              required
+              class="holder"
+            />
+            <label class="reg-label" for="confirmPassword"
+              >Confirm Password</label
+            >
+            <div
+              class="eyeIconConfirmRegister eyeIcon"
+              id="togglePasswordConfirmRegister"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-eye-icon lucide-eye"
+              >
+                <path
+                  d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="reg gender-box">
+            <label class="gender-label">Gender:</label>
+            <div class="gender-options">
+              <label>
+                <input type="radio" name="gender" value="male" required />
+                Male
+              </label>
+              <label>
+                <input type="radio" name="gender" value="female" required />
+                Female
+              </label>
+            </div>
+          </div>
+
+          <input type="submit" value="Confirm" class="submit" />
+
+          <h2 id="errorMsgReg"></h2>
+        </form>
+
+        <!-- COMPANY REGISTER FORM-->
+        <form id="companyRegisterForm" class="hidden">
+          <div class="inp" id="comp-name">
+            <input
+              class="holder"
+              type="text"
+              name="name"
+              id="companyName"
+              placeholder="Company Name"
+              required
+            />
+          </div>
+
+          <div class="inp" id="email-div-company">
+            <input
+              class="holder"
+              type="text"
+              name="email"
+              id="companyEmail"
+              placeholder="example@company.com"
+              required
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="email-icon"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.5 12a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 1 0-2.636 6.364M16.5 12V8.25"
+              />
+            </svg>
+          </div>
+
+          <div class="inp">
+            <input
+              type="password"
+              id="companyPassword"
+              name="password"
+              required
+              class="holder"
+              placeholder="Password"
+            />
+            <div class="eyeIconCompany eyeIcon" id="togglePasswordCompany">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-eye"
+              >
+                <path
+                  d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="inp">
+            <input
+              type="password"
+              id="companyConfirmPassword"
+              name="confirmPassword"
+              required
+              class="holder"
+              placeholder="Confirm Password"
+            />
+            <div
+              class="eyeIconCompanyConfirm eyeIcon"
+              id="togglePasswordCompanyConfirm"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-eye"
+              >
+                <path
+                  d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+                />
+                <circle cx="12" cy="12" r="3" />
+              </svg>
+            </div>
+          </div>
+
+          <div class="inp" id="phone">
+            <input
+              type="tel"
+              id="companyNumber"
+              name="number"
+              required
+              class="holder"
+              placeholder="Phone Number"
+            />
+          </div>
+
+          <div class="address">
+            <div class="inp" id="street-address">
+              <input
+                class="holder"
+                type="text"
+                name="street-address"
+                id="streetAddress"
+                placeholder="Street Address"
+                required
+              />
+            </div>
+
+            <div class="grid">
+              <div class="inp" id="city">
+                <input
+                  class="holder"
+                  type="text"
+                  name="city"
+                  id="companyCity"
+                  placeholder="City"
+                  required
+                />
+              </div>
+              <div class="inp" id="state">
+                <input
+                  class="holder"
+                  type="text"
+                  name="state"
+                  id="companyState"
+                  placeholder="State / Province"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="inp" id="postal">
+                <input
+                  class="holder"
+                  type="text"
+                  name="postal"
+                  id="companyPostal"
+                  placeholder="Postal / Zip Code"
+                  required
+                />
+              </div>
+              <div class="inp" id="country">
+                <input
+                  class="holder"
+                  type="text"
+                  name="country"
+                  id="companyCountry"
+                  placeholder="Country"
+                  required
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="inp" id="link">
+            <input
+              class="holder"
+              type="text"
+              name="link"
+              id="companyLink"
+              placeholder="Company URL"
+              required
+            />
+          </div>
+
+          <div class="inp">
+            <input type="submit" value="Register" class="submit" />
+          </div>
+
+          <h2 id="errorMsgCompany"></h2>
+        </form>
+
+        <h2 id="changePage">
+          Already have an account?
+          <a href="#" id="goLogin">Login</a>
+        </h2>
+        <h2 id="changetoregcomp">
+          Want to register a company?
+          <a id="regcomp">Register</a>
+        </h2>
+      </div>
+    </div>
+
+    <a href="./landing.html" id="goBack">&lt; Go Back</a>
+    <script src="../assets/js/themeToggle.js"></script>
+    <script src="../assets/js/logReg.js"></script>
+  </body>
+</html>

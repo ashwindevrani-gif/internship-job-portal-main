@@ -1,0 +1,8 @@
+# Ignore all files inside the ImageStorage directory
+ImageStorage/*
+!ImageStorage/.gitkeep
+# Ignore all files inside the cv directory
+CVStorage/*
+!CVStorage/.gitkeep
+# Ingore sensitve info in /php/includes/PHPMailer/mail_config.php
+/php/includes/PHPMailer/mail_config.php
